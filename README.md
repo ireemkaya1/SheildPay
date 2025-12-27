@@ -1,33 +1,24 @@
 # ShieldPay
 
-ShieldPay, 4’lü proje kapsamında geliştirilen; İleri Web, SOA, Veritabanı ve Makine Öğrenmesi bileşenlerini tek bir projede birleştiren örnek bir uygulamadır.
+ShieldPay, 4’lü proje kapsamında geliştirilen; web uygulaması, servis odaklı mimari (SOA) bileşenleri, veritabanı ve makine öğrenmesi modüllerini tek bir yapıda birleştiren örnek bir projedir.
 
-## Klasör Yapısı
-- **web/Payment.Web**: ASP.NET MVC (İleri Web) uygulaması
-- **soa/**: SOAP (Spyne), gRPC (Python), Node.js Express API servisleri
-- **ml/**: Model eğitimi, değerlendirme ve servis entegrasyonu
-- **veritabani/**: SQL script/backup ve veritabanı dokümanları
+## Repository Yapısı
+- **web/Payment.Web**: ASP.NET MVC web uygulaması (UI + iş akışları)
+- **soa/**: SOAP (Spyne), gRPC (Python) ve Node.js Express API servisleri
+- **ml/**: Model eğitimi / değerlendirme çıktıları ve entegrasyon dosyaları
+- **veritabani/**: SQL script/backup ve veritabanı materyalleri
 
-## İleri Web İster Karşılığı (Özet)
-- 5+ Controller ve 3+ Action
-- Esnek View yapısı (rol bazlı içerik)
-- PartialView / ViewComponent kullanımı
-- Custom Layout (en az 3 view’de)
-- DB bağlantısı + CRUD (Transactions)
-- 2 kullanıcı rolü: Admin / User
-- ViewBag / ViewData / TempData ile sayfalar arası veri aktarımı
+## Teknoloji Yığını
+- **Web:** ASP.NET MVC (C#), Razor Views
+- **SOA:** SOAP (Spyne/Python), gRPC (Python), Node.js (Express)
+- **Veritabanı:** MySQL
+- **ML:** Python, scikit-learn / ilgili notebook ve modeller
 
-## SOA (Özet)
-- SOAP: WSDL üzerinden servis çağrısı
-- gRPC: proto + server/client iletişimi
-- Node.js API: health/predict/rates endpointleri
-- Hazır API tüketimi: döviz/kurlar (ör. Frankfurter)
-
-## Çalıştırma (Kısa)
-> Gizli bilgiler (.env / appsettings.json) repoya eklenmez. Örnek dosyaları yerelde oluşturunuz.
+## Kurulum ve Çalıştırma (Özet)
+> Gizli bilgiler repoya eklenmez. Ortam değişkenlerini yerelde tanımlayınız.
 
 ### Web (ASP.NET MVC)
-- Visual Studio ile çalıştırabilir veya:
+- Visual Studio ile çalıştırılabilir veya:
   - `dotnet run`
 
 ### Node.js API
@@ -35,7 +26,9 @@ ShieldPay, 4’lü proje kapsamında geliştirilen; İleri Web, SOA, Veritabanı
 - `npm start`
 
 ### SOAP / gRPC
-- İlgili klasörde server’ı çalıştırıp client ile test ediniz.
+- İlgili servis klasöründe server başlatılır, client ile test edilir.
 
-## GitHub
-Repo: https://github.com/ireemkaya1/SheildPay
+## Notlar
+- Repo, proje bileşenlerini modüler klasör yapısı ile sunar.
+- Servis testleri için Postman/terminal çıktıları kullanılabilir.
+

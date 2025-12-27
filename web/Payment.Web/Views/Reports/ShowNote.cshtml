@@ -1,0 +1,19 @@
+@{
+    Layout = "_MyLayout";
+}
+
+<h2>Gönderilen Not</h2>
+
+@if (TempData["UserNote"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Not:</strong> @TempData["UserNote"]
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Not bulunamadı.
+    </div>
+}
+

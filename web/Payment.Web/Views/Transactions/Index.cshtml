@@ -1,0 +1,60 @@
+@model IEnumerable<Payment.Web.Models.Transaction>
+
+@{
+    ViewData["Title"] = "İşlemler";
+}
+
+<h2 class="mb-3">İşlemler</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<a class="btn btn-primary mb-3" asp-controller="Transactions" asp-action="Create">Yeni işlem</a>
+
+<!-- Responsive tablo: mobilde yatay scroll -->
+<div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Gönderen</th>
+                <th>Tutar</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.Sender</td>
+                <td>@t.Amount.ToString("N2")</td>
+                <td>@t.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    @if (t.IsFraud)
+                    {
+                        <span class="badge bg-danger">Fraud</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Normal</span>
+                    }
+                </td>
+                <td class="d-flex gap-2 flex-wrap">
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@t.Id">Detay</a>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@t.Id">Sil</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

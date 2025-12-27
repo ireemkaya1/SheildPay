@@ -1,0 +1,23 @@
+@model List<Payment.Web.Models.Transaction>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Sender</td>
+            <td>@item.Receiver</td>
+            <td>@item.Amount</td>
+            <td>@item.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+        </tr>
+    }
+    </tbody>
+</table>

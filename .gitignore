@@ -1,0 +1,16 @@
+# Secrets
+.env
+*.env
+appsettings.json
+appsettings.*.json
+
+# Logs & temp
+*.log
+node_modules/
+bin/
+obj/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store

@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Http
+@{
+    Layout = "_Layout";
+    var role = Context.Session.GetString("Role");
+}
+
+<h2>Settings</h2>
+
+@if (role == "Admin")
+{
+    <div class="alert alert-warning">
+        <strong>Admin Paneli:</strong> Burada sistem ayarları yönetilebilir (demo).
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        Bu sayfa sadece Admin kullanıcıya açıktır.
+    </div>
+}
+

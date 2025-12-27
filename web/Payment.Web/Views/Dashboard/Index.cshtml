@@ -1,0 +1,25 @@
+@model Payment.Web.Models.ViewModels.DashboardViewModel
+
+<h4>Son İşlemler</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gönderen</th>
+            <th>Tutar</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model.RecentTransactions)
+        {
+            <tr>
+                <td>@t.Sender</td>
+                <td class="@(t.Amount >= 0 ? "text-success" : "text-danger")">
+                    @t.Amount.ToString("N2")
+                </td>
+                <td>@t.CreatedAt.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

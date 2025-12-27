@@ -1,0 +1,38 @@
+@model List<Payment.Web.Models.ViewModels.TransactionRowViewModel>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <strong>Son İşlemler</strong>
+    </div>
+
+    <div class="card-body p-0">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="p-3 text-muted">Gösterilecek işlem yok</div>
+        }
+        else
+        {
+            <table class="table table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th>Gönderen</th>
+                        <th>Tutar</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in Model)
+                    {
+                        <tr>
+                            <td>@t.Sender</td>
+                            <td class="@(t.Amount < 0 ? "text-danger" : "text-success")">
+                                @t.Amount.ToString("C2")
+                            </td>
+                            <td>@t.Date</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

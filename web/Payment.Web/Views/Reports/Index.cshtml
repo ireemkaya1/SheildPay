@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Http
+@model Payment.Web.Models.ViewModels.ReportViewModel
+
+@{
+    ViewData["Title"] = "Reports";
+    Layout = "_Layout";
+    var role = Context.Session.GetString("Role");
+}
+
+<h2 class="mb-3">@Model.Title</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Toplam İşlem:</strong> @Model.TotalCount</p>
+        <p><strong>Fraud İşlem:</strong> @Model.FraudCount</p>
+        <p><strong>Toplam Tutar:</strong> @Model.TotalAmount</p>
+    </div>
+</div>
+
+<hr class="my-4" />
+
+@if (role == "Admin")
+{
+    <div class="alert alert-warning">
+        Admin görünümü: ek rapor ekranları ve yönetim aksiyonları (ister için role göre içerik değişimi).
+    </div>
+
+    <div class="d-flex gap-2">
+        <a class="btn btn-secondary" href="/Reports/Daily">Daily</a>
+        <a class="btn btn-secondary" href="/Reports/Monthly">Monthly</a>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        User görünümü: sadece görüntüleme (ister için role göre içerik değişimi).
+    </div>
+
+    <div class="d-flex gap-2">
+        <a class="btn btn-secondary" href="/Reports/Daily">Daily</a>
+    </div>
+}

@@ -1,0 +1,9 @@
+@model (int TotalCount, decimal TotalAmount)
+@{
+    Layout = "_MyLayout";
+}
+
+<h2>Daily Report</h2>
+
+<partial name="_ReportSummaryPartial" model="Model" />
+

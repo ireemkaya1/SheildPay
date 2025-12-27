@@ -1,0 +1,20 @@
+@model Payment.Web.Models.Transaction
+
+<h2>İşlemi Sil</h2>
+
+<div class="alert alert-warning">
+    Bu işlemi silmek istediğine emin misin?
+</div>
+
+<ul>
+    <li><b>ID:</b> @Model.Id</li>
+    <li><b>Gönderen:</b> @Model.Sender</li>
+    <li><b>Tutar:</b> @Model.Amount</li>
+    <li><b>Tarih:</b> @Model.CreatedAt</li>
+</ul>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>

@@ -1,0 +1,24 @@
+/* Payment.Web/wwwroot/css/site.css */
+#mainNavbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
+
+#mainNavbar, #mainNavbar * {
+  pointer-events: auto !important;
+}
+
+/* Bootstrap backdrop kalıntılarını tamamen etkisizleştir */
+.modal-backdrop,
+.offcanvas-backdrop,
+.dropdown-backdrop {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}

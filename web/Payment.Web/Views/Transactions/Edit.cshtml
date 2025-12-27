@@ -1,0 +1,21 @@
+@model Payment.Web.Models.Transaction
+
+<h2>İşlem Güncelle</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Sender/Receiver ekranda yoksa bile POST'ta kaybolmasın diye hidden tut -->
+    <input type="hidden" asp-for="Sender" />
+    <input type="hidden" asp-for="Receiver" />
+
+    <div class="mb-3">
+        <label class="form-label">Tutar</label>
+        <input asp-for="Amount" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>

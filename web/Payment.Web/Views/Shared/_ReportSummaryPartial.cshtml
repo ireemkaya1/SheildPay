@@ -1,0 +1,11 @@
+@model (int TotalCount, decimal TotalAmount)
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Rapor Özeti</h5>
+        <ul>
+            <li><strong>Toplam işlem:</strong> @Model.TotalCount</li>
+            <li><strong>Toplam tutar:</strong> @Model.TotalAmount ₺</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+  rpc ValidateTransaction (TransactionRequest) returns (TransactionResponse);
+}
+
+message TransactionRequest {
+  double amount = 1;
+  string currency = 2;
+}
+
+message TransactionResponse {
+  bool approved = 1;
+  string reason = 2;
+}

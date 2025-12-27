@@ -1,0 +1,17 @@
+@model Payment.Web.Models.Transaction
+@{
+    ViewData["Title"] = "İşlem Detayı";
+    Layout = "_Layout";
+}
+
+<h2>İşlem Detayı</h2>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Gönderen:</strong> @Model.Sender</li>
+    <li class="list-group-item"><strong>Alıcı:</strong> @Model.Receiver</li>
+    <li class="list-group-item"><strong>Tutar:</strong> @Model.Amount</li>
+    <li class="list-group-item"><strong>Tarih:</strong> @Model.CreatedAt</li>
+    <li class="list-group-item"><strong>Fraud:</strong> @Model.IsFraud</li>
+</ul>
+
+
